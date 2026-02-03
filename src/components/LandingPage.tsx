@@ -33,10 +33,13 @@ export function LandingPage() {
         {/* Main content */}
         <main className="flex-1 flex items-center justify-center px-6">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 mb-8 animate-fade-in-up">
-              <div className="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse" />
-              <span className="text-sm font-medium text-cyber-cyan">Enterprise Security Simulation</span>
+            {/* Status Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-card/60 border border-border/60 backdrop-blur-sm mb-8 animate-fade-in-up shadow-[0_0_20px_hsl(var(--cyber-cyan)/0.1)]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75" style={{ animationDuration: '2s' }} />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyber-green" />
+              </span>
+              <span className="text-xs font-medium tracking-widest text-muted-foreground uppercase">Live Attack Surface Model</span>
             </div>
 
             {/* Title */}
