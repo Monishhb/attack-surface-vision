@@ -46,7 +46,7 @@ export function LandingPage() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up delay-100">
               <span className="text-foreground">Attack Surface</span>
               <br />
-              <span className="cyber-text-gradient">Mapper</span>
+              <span className="bg-gradient-to-r from-cyber-cyan to-cyan-400 bg-clip-text text-transparent">Mapper</span>
             </h1>
 
             {/* Subtitle */}
