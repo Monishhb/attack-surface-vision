@@ -390,7 +390,7 @@ export function AnalysisModal({ open, onComplete, organizationName }: AnalysisMo
               />
             </div>
             <div className="flex justify-between mt-1.5 text-[10px] text-muted-foreground font-mono">
-              <span className="opacity-60">{currentStage < analysisStages.length ? analysisStages[currentStage].name : 'Complete'}</span>
+              <span className="opacity-60">{analysisStages[currentStage]?.name ?? 'Complete'}</span>
               <span className="tabular-nums">{isComplete ? 'COMPLETE' : 'PROCESSING'}</span>
             </div>
           </div>
@@ -405,7 +405,7 @@ export function AnalysisModal({ open, onComplete, organizationName }: AnalysisMo
                 </div>
               ))}
               
-              {!isComplete && currentStage < analysisStages.length && (
+              {!isComplete && analysisStages[currentStage] && (
                 <>
                   <div className="flex items-center gap-2 text-cyber-cyan">
                     <span className="animate-pulse">▸</span>
