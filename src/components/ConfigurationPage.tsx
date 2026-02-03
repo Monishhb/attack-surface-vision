@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { CyberBackground } from '@/components/CyberBackground';
+import { AnalysisModal } from '@/components/AnalysisModal';
 import { Shield, ArrowLeft, ArrowRight, Building2, User, AlertCircle } from 'lucide-react';
 import { TargetConfig, TargetType, Industry, SecurityMaturity } from '@/types/asm';
 
@@ -37,6 +38,7 @@ export function ConfigurationPage() {
     securityMaturity: 'medium',
   });
   const [error, setError] = useState<string | null>(null);
+  const [showAnalysis, setShowAnalysis] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,8 +49,12 @@ export function ConfigurationPage() {
       return;
     }
 
-    // Store config and navigate to dashboard
+    // Store config and show analysis modal
     sessionStorage.setItem('asmConfig', JSON.stringify(config));
+    setShowAnalysis(true);
+  };
+
+  const handleAnalysisComplete = () => {
     navigate('/dashboard');
   };
 
@@ -265,10 +271,17 @@ export function ConfigurationPage() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
-            </form>
-          </div>
-        </main>
-      </div>
+          </form>
+        </div>
+      </main>
+
+      {/* Analysis Modal */}
+      <AnalysisModal 
+        open={showAnalysis}
+        onComplete={handleAnalysisComplete}
+        organizationName={config.organizationName || 'Target'}
+      />
     </div>
+  </div>
   );
 }
