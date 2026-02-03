@@ -325,7 +325,10 @@ export function AnalysisModal({ open, onComplete, organizationName }: AnalysisMo
         setCompletedMessages(prev => [...prev, analysisStages[stageIndex].message]);
         stageIndex++;
         stageStartTime = Date.now();
-        setCurrentStage(stageIndex);
+        // Only update currentStage if within bounds
+        if (stageIndex < analysisStages.length) {
+          setCurrentStage(stageIndex);
+        }
         setSubStatus('');
         
         // Random pause between stages
